@@ -17,8 +17,3 @@ Scope:
 2. Estimated tax liability
 3. Summary of TDS, Input/Output GST
 4. Visual dashboards (charts, ratios)
-
-Impact: Empowers MSMEs and professionals with clear, actionable financial insights.
-
-.....................................
-cvcv
