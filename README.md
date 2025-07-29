@@ -27,14 +27,13 @@ Welcome to the **Balance Sheet Analyzer** — a tool designed to simplify and au
 ## 📂 How to Use
 
 1. **Clone the repo**
-   ```
-   git clone https://github.com/lokeshagarwal2304/balance-sheet-analyzer.git
+   ```bash
+   git clone https://github.com/gayatri192005/balance-sheet-analyzer.git
    cd balance-sheet-analyzer
-```
-```
+
 2. **Install dependencies**
 
-   ```
+   ```bash
    npm install
    # or
    pip install -r requirements.txt
@@ -72,14 +71,14 @@ Welcome to the **Balance Sheet Analyzer** — a tool designed to simplify and au
 ## 📧 Contact
 
 For suggestions, queries, or collab opportunities:
-📬 [lokeshagarwal2304@gmail.com](mailto:lokeshagarwal2304@gmail.com)
+📬 [gayatri192005@gmail.com](mailto:gayatri192005@gmail.com)
 
 ---
 
 ## ⭐ Show Some Love
 
 If you liked this project, don't forget to leave a ⭐
-Let’s connect on [LinkedIn](https://www.linkedin.com/in/lokeshagarwal2304) | [GitHub](https://github.com/lokeshagarwal2304)
+Let’s connect on [LinkedIn](https://www.linkedin.com/in/gayatri192005) | [GitHub](https://github.com/gayatri192005)
 
 ---
 
