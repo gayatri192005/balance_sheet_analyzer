@@ -1,0 +1,51 @@
+### 💡 **Prompt: Balance Sheet Analyzer for Banking Sector – AI-Powered & UI-Enhanced**
+
+Create an intelligent, interactive **Balance Sheet Analyzer web application focused on the banking sector**, designed to provide an effortless and visually engaging experience for users such as investors, auditors, analysts, and finance students. The platform must allow users to **upload bank balance sheets** in PDF, Excel, or CSV format and extract key financial data using **AI-powered OCR, NLP, and tabular parsing engines**. It should automatically identify and organize complex banking-specific fields like **assets (loans, reserves, investments)**, **liabilities (deposits, borrowings)**, and **equity components (capital, reserves, surplus)**, along with indicators like **Gross/Net NPAs, CRAR, Tier 1/Tier 2 Capital, Return on Assets (ROA), Cost-to-Income Ratio, and more**.
+
+The web app should feature a **toggle switch** to switch between raw data view and AI-enhanced insights. It must have a **built-in assistant chatbot** that supports queries like “Show capital adequacy ratio trends from 2020–2024” or “Highlight major changes in liabilities”. The assistant should also offer proactive suggestions like potential risk flags, liquidity drop alerts, or unusual asset shifts. A **dark/light mode toggle** with animated transitions will enhance user comfort and engagement.
+
+The UI must be **clean, minimalistic, and responsive**, built with modern design principles and components. Animations like **smooth card transitions, collapsible sections, number counters**, and **hover effects** should make the financial exploration journey intuitive and engaging. Key ratios and summaries should be visualized using **animated charts, radial progress indicators, and KPI cards**. A customizable dashboard should allow users to pin important widgets, filter periods, or compare multiple banks side-by-side.
+
+Other features include:
+
+* Multi-year comparison for trend analysis
+* Multi-bank comparison in a grid/table format
+* Downloadable PDF and Excel reports with AI-written summaries
+* Exportable graphs and snapshots for presentations
+* Role-based access (admin, analyst, auditor)
+* Secure file storage with encryption
+* Optional manual data entry for smaller institutions
+
+---
+
+### 🎯 **Target Audience**
+
+* **Investors** – to assess bank stability and investment risks
+* **FinTech Startups** – as a core feature in analytics products
+* **Auditors & CA Firms** – to streamline bulk bank analysis
+* **Academia** – for finance education and student projects
+* **Hackathons** – ideal for AI + finance innovation themes
+
+---
+
+### 🛠️ **Suggested Tech Stack**
+
+* **Frontend**: React.js + Tailwind CSS + Framer Motion / GSAP
+* **Backend**: Node.js / Django REST Framework
+* **Database**: MongoDB / PostgreSQL
+* **File Parsing**: PDFplumber, pandas, tabula-py, Tesseract-OCR
+* **AI & NLP**: OpenAI API, LangChain, spaCy
+* **Assistant**: RAG-powered chatbot with memory and document context
+* **Auth & Security**: JWT, OAuth2, HTTPS, file encryption
+* **Hosting**: Vercel (frontend), Render / AWS / Firebase (backend)
+
+---
+
+### ✨ Bonus Add-ons (Optional):
+
+* Voice input for the assistant
+* Offline support (PWA)
+* Email notification with auto-generated reports
+* Financial benchmarking with RBI data
+* Admin analytics for user behavior and session tracking
+
