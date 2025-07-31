@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Balance Sheet Analyzer - Upload, analyze, and visualize financial data with advanced ratios and insights">
+    <meta name="keywords" content="balance sheet, financial analysis, ratios, banking, fintech">
+    <title>Balance Sheet Analyzer | Professional Financial Analysis Tool</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.29/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">📊</div>
+                <h1>Balance Sheet Analyzer</h1>
+            </div>
+            <div class="header-controls">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <button class="help-btn" id="helpBtn" aria-label="Help">
+                    <span>?</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <button class="nav-btn active" data-section="upload">📁 Upload Data</button>
+            <button class="nav-btn" data-section="viewer">📊 Balance Sheet</button>
+            <button class="nav-btn" data-section="charts">📈 Charts</button>
+            <button class="nav-btn" data-section="ratios">📐 Ratios</button>
+            <button class="nav-btn" data-section="insights">🧠 Insights</button>
+            <button class="nav-btn" data-section="export">📄 Export</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-spinner"></div>
+            <p>Processing data...</p>
+        </div>
+
+        <!-- Upload Section -->
+        <section class="content-section active" id="upload">
+            <div class="section-header">
+                <h2>Data Input</h2>
+                <p>Upload your balance sheet data or enter manually</p>
+            </div>
+            
+            <div class="upload-container">
+                <div class="upload-methods">
+                    <!-- File Upload -->
+                    <div class="upload-method">
+                        <h3>📁 File Upload</h3>
+                        <div class="file-upload-area" id="fileUploadArea">
+                            <input type="file" id="fileInput" accept=".csv,.xlsx" hidden>
+                            <div class="upload-placeholder">
+                                <div class="upload-icon">📁</div>
+                                <p>Drag & drop files here or click to browse</p>
+                                <p class="file-types">Supports: CSV, XLSX</p>
+                            </div>
+                        </div>
+                        <button class="upload-btn" id="uploadBtn">Choose File</button>
+                        <div class="sample-download">
+                            <a href="#" id="downloadSample">📥 Download Sample CSV</a>
+                        </div>
+                    </div>
+
+                    <!-- Manual Input -->
+                    <div class="upload-method">
+                        <h3>✏️ Manual Input</h3>
+                        <div class="manual-input-form">
+                            <div class="input-group">
+                                <label for="companyName">Company Name</label>
+                                <input type="text" id="companyName" placeholder="Enter company name">
+                            </div>
+                            <div class="input-group">
+                                <label for="fiscalYear">Fiscal Year</label>
+                                <input type="number" id="fiscalYear" placeholder="2024" min="1900" max="2100">
+                            </div>
+                            
+                            <div class="financial-inputs">
+                                <div class="input-section">
+                                    <h4>Assets</h4>
+                                    <div class="input-row">
+                                        <label>Cash & Cash Equivalents</label>
+                                        <input type="number" id="cash" placeholder="0" step="0.01">
+                                    </div>
+                                    <div class="input-row">
+                                        <label>Accounts Receivable</label>
+                                        <input type="number" id="accountsReceivable" placeholder="0" step="0.01">
+                                    </div>
+                                    <div class="input-row">
+                                        <label>Inventory</label>
+                                        <input type="number" id="inventory" placeholder="0" step="0.01">
+                                    </div>
+                                    <div class="input-row">
+                                        <label>Fixed Assets</label>
+                                        <input type="number" id="fixedAssets" placeholder="0" step="0.01">
+                                    </div>
+                                </div>
+                                
+                                <div class="input-section">
+                                    <h4>Liabilities</h4>
+                                    <div class="input-row">
+                                        <label>Accounts Payable</label>
+                                        <input type="number" id="accountsPayable" placeholder="0" step="0.01">
+                                    </div>
+                                    <div class="input-row">
+                                        <label>Short-term Debt</label>
+                                        <input type="number" id="shortTermDebt" placeholder="0" step="0.01">
+                                    </div>
+                                    <div class="input-row">
+                                        <label>Long-term Debt</label>
+                                        <input type="number" id="longTermDebt" placeholder="0" step="0.01">
+                                    </div>
+                                </div>
+                                
+                                <div class="input-section">
+                                    <h4>Equity</h4>
+                                    <div class="input-row">
+                                        <label>Common Stock</label>
+                                        <input type="number" id="commonStock" placeholder="0" step="0.01">
+                                    </div>
+                                    <div class="input-row">
+                                        <label>Retained Earnings</label>
+                                        <input type="number" id="retainedEarnings" placeholder="0" step="0.01">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="process-btn" id="processManualBtn">Process Data</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Data Preview -->
+                <div class="data-preview" id="dataPreview" style="display: none;">
+                    <h3>📋 Data Preview</h3>
+                    <div class="preview-content" id="previewContent"></div>
+                    <div class="preview-actions">
+                        <button class="btn-primary" id="confirmDataBtn">Confirm & Analyze</button>
+                        <button class="btn-secondary" id="editDataBtn">Edit Data</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Balance Sheet Viewer -->
+        <section class="content-section" id="viewer">
+            <div class="section-header">
+                <h2>Balance Sheet</h2>
+                <p>Detailed view of your financial data</p>
+            </div>
+            
+            <div class="balance-sheet-container">
+                <div class="balance-sheet-header">
+                    <div class="company-info" id="companyInfo">
+                        <h3 id="companyNameDisplay">Company Name</h3>
+                        <p id="fiscalYearDisplay">Fiscal Year: 2024</p>
+                    </div>
+                    <div class="summary-cards">
+                        <div class="summary-card assets">
+                            <h4>Total Assets</h4>
+                            <span class="amount" id="totalAssets">$0</span>
+                        </div>
+                        <div class="summary-card liabilities">
+                            <h4>Total Liabilities</h4>
+                            <span class="amount" id="totalLiabilities">$0</span>
+                        </div>
+                        <div class="summary-card equity">
+                            <h4>Total Equity</h4>
+                            <span class="amount" id="totalEquity">$0</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="balance-sheet-tables">
+                    <div class="table-section">
+                        <h3>Assets</h3>
+                        <div class="table-container">
+                            <table class="balance-table" id="assetsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Amount</th>
+                                        <th>% of Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="assetsTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="table-section">
+                        <h3>Liabilities</h3>
+                        <div class="table-container">
+                            <table class="balance-table" id="liabilitiesTable">
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Amount</th>
+                                        <th>% of Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="liabilitiesTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="table-section">
+                        <h3>Equity</h3>
+                        <div class="table-container">
+                            <table class="balance-table" id="equityTable">
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Amount</th>
+                                        <th>% of Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="equityTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="content-section" id="charts">
+            <div class="section-header">
+                <h2>Data Visualization</h2>
+                <p>Interactive charts and graphs</p>
+            </div>
+            
+            <div class="charts-container">
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <h3>Asset vs Liability Distribution</h3>
+                        <div class="chart-container">
+                            <canvas id="pieChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <h3>Financial Structure</h3>
+                        <div class="chart-container">
+                            <canvas id="barChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-card full-width">
+                        <h3>Equity Trend Analysis</h3>
+                        <div class="chart-container">
+                            <canvas id="lineChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ratios Section -->
+        <section class="content-section" id="ratios">
+            <div class="section-header">
+                <h2>Financial Ratios</h2>
+                <p>Key performance indicators and risk metrics</p>
+            </div>
+            
+            <div class="ratios-container">
+                <div class="ratios-grid" id="ratiosGrid">
+                    <!-- Ratios will be dynamically generated here -->
+                </div>
+                
+                <div class="ratios-summary">
+                    <h3>Ratio Analysis Summary</h3>
+                    <div class="summary-stats" id="summaryStats">
+                        <!-- Summary stats will be generated here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Insights Section -->
+        <section class="content-section" id="insights">
+            <div class="section-header">
+                <h2>AI Insights</h2>
+                <p>Automated analysis and recommendations</p>
+            </div>
+            
+            <div class="insights-container">
+                <div class="insights-header">
+                    <div class="ai-avatar">🤖</div>
+                    <div class="ai-info">
+                        <h3>Financial Analysis AI</h3>
+                        <p>Analyzing your balance sheet data...</p>
+                    </div>
+                </div>
+                
+                <div class="insights-content" id="insightsContent">
+                    <!-- Insights will be dynamically generated here -->
+                </div>
+                
+                <div class="insights-actions">
+                    <button class="btn-primary" id="refreshInsightsBtn">🔄 Refresh Analysis</button>
+                    <button class="btn-secondary" id="exportInsightsBtn">📄 Export Insights</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Export Section -->
+        <section class="content-section" id="export">
+            <div class="section-header">
+                <h2>Export Reports</h2>
+                <p>Generate and download comprehensive reports</p>
+            </div>
+            
+            <div class="export-container">
+                <div class="export-options">
+                    <div class="export-card">
+                        <h3>📊 Complete Report</h3>
+                        <p>Full analysis with charts, ratios, and insights</p>
+                        <button class="export-btn primary" id="exportFullReport">Generate PDF Report</button>
+                    </div>
+                    
+                    <div class="export-card">
+                        <h3>📈 Charts Only</h3>
+                        <p>Visual data representation</p>
+                        <button class="export-btn secondary" id="exportCharts">Export Charts</button>
+                    </div>
+                    
+                    <div class="export-card">
+                        <h3>📐 Ratios Report</h3>
+                        <p>Financial ratios and analysis</p>
+                        <button class="export-btn secondary" id="exportRatios">Export Ratios</button>
+                    </div>
+                    
+                    <div class="export-card">
+                        <h3>🧠 Insights Report</h3>
+                        <p>AI-generated insights and recommendations</p>
+                        <button class="export-btn secondary" id="exportInsights">Export Insights</button>
+                    </div>
+                </div>
+                
+                <div class="export-preview" id="exportPreview">
+                    <h3>Report Preview</h3>
+                    <div class="preview-content" id="reportPreview"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Help Modal -->
+    <div class="modal" id="helpModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Help & Instructions</h3>
+                <button class="modal-close" id="closeHelpModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="help-section">
+                    <h4>📁 Data Upload</h4>
+                    <ul>
+                        <li>Upload CSV or Excel files with balance sheet data</li>
+                        <li>Use the sample CSV format for reference</li>
+                        <li>Or manually input your financial data</li>
+                    </ul>
+                </div>
+                <div class="help-section">
+                    <h4>📊 Understanding Ratios</h4>
+                    <ul>
+                        <li><strong>Current Ratio:</strong> Measures short-term liquidity (≥1.5 is good)</li>
+                        <li><strong>Quick Ratio:</strong> More conservative liquidity measure (≥1.0 is good)</li>
+                        <li><strong>Debt-to-Equity:</strong> Leverage indicator (≤0.5 is conservative)</li>
+                        <li><strong>ROA:</strong> Return on Assets efficiency (≥5% is good)</li>
+                        <li><strong>ROE:</strong> Return on Equity profitability (≥10% is good)</li>
+                    </ul>
+                </div>
+                <div class="help-section">
+                    <h4>🎨 Features</h4>
+                    <ul>
+                        <li>Toggle between light and dark themes</li>
+                        <li>Export reports in PDF format</li>
+                        <li>Interactive charts and visualizations</li>
+                        <li>AI-powered insights and recommendations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/ratios.js"></script>
+    <script src="scripts/charts.js"></script>
+    <script src="scripts/insights.js"></script>
+</body>
+</html> 
