@@ -79,7 +79,3 @@ For suggestions, queries, or collab opportunities:
 
 If you liked this project, don't forget to leave a ⭐
 Let’s connect on [LinkedIn](https://www.linkedin.com/in/gayatri192005) | [GitHub](https://github.com/gayatri192005)
-
----
-
-> “Numbers don’t lie — and now, they talk too!”
