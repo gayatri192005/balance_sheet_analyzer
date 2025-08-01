@@ -1,0 +1,91 @@
+🔮 1. AI-Based Financial Health Score Prompt
+Prompt:
+"Analyze the following balance sheet data and generate a financial health score out of 100. Consider liquidity, solvency, profitability, and efficiency ratios. Also, explain why this score was given."
+
+✅ Output expected:
+
+Score (e.g., 78/100)
+
+Category (Healthy, Risky, Unstable)
+
+Reasoning summary
+
+🧠 2. Smart Financial Insights Generator Prompt
+Prompt:
+"Based on this company's balance sheet and key ratios for the last 3 years, generate a human-like summary that highlights financial strengths, weaknesses, and trends in less than 150 words."
+
+✅ Output expected:
+
+Professional insights
+
+Trend observations
+
+Strength/weakness breakdown
+
+Business-friendly tone
+
+💬 3. Narrative Generator for Report Section Prompt
+Prompt:
+"Generate a written narrative summary to include in a financial report based on the following balance sheet. Use a formal, business analysis tone. Keep the language simple yet impactful."
+
+✅ Output expected:
+
+Ready-to-paste report text
+
+Good for PDF export
+
+Can be translated
+
+🆚 4. Company Comparison Prompt
+Prompt:
+"Compare Company A and Company B based on their balance sheets. Highlight which company is stronger in liquidity, debt handling, profitability, and asset management."
+
+✅ Output expected:
+
+Tabular/text comparison
+
+Bullet points for clarity
+
+AI judgment on “who’s better & why”
+
+🌍 5. Multi-Language Translation Prompt
+Prompt:
+"Translate the following financial summary into [language]. Keep the meaning and tone intact."
+
+✅ Output expected:
+
+Human-friendly multilingual outputs
+
+Supports localization of your analyzer
+
+📊 6. Risk Flag Generator Prompt
+Prompt:
+"Identify any financial red flags or risks from the given balance sheet and ratios. Highlight areas like high debt, poor liquidity, or inconsistent earnings."
+
+✅ Output expected:
+
+⚠ Red flags listed clearly
+
+Suggestion-based: “Needs attention”, “Critical”, etc.
+
+📅 7. Predictive Prompt (Optional with Time Series)
+Prompt:
+"Predict the financial health score and key ratios for next year based on the past 3 years of balance sheet data using a trend-based approach."
+
+✅ Output expected:
+
+Predictive values (Next year’s score, ratios)
+
+Small explanation of predicted trends
+
+🎁 BONUS: Visual Prompt Wrapper
+Prompt:
+"Create a user-facing summary with emojis, simple words, and color-coded interpretation of the balance sheet. Make it Gen-Z friendly and easy to understand."
+
+✅ Output expected:
+
+🔵🟡🔴 colored outputs
+
+Emojis for vibes
+
+Simplified lingo
